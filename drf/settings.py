@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-!n#2uln8-fg%we7o-^9885o2_1*$hg83v6i)at-(7lu)3=r#ob
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "localhost"
+]
 
 # Application definition
 
@@ -39,6 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'base',
+    'django_dump_die',
+    'corsheaders',
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_dump_die.middleware.DumpAndDieMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'drf.urls'

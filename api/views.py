@@ -5,8 +5,10 @@ from .serializers import ItemSerializer
 
 @api_view(['GET'])
 def getData(request):
+    # dump(request.data)
     items = Item.objects.all()
     serializer = ItemSerializer(items, many=True)
+    # dd(serializer.data)
     return Response(serializer.data)
     
 @api_view(['POST'])
