@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-!n#2uln8-fg%we7o-^9885o2_1*$hg83v6i)at-(7lu)3=r#ob
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost"
+    'localhost',
+    '127.0.0.1'
 ]
 
 # Application definition
@@ -45,16 +46,17 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    )
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # ),
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     'rest_framework.parsers.JSONParser',
+    # )
 }
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://127.0.0.1:3000',
 ]
 
 MIDDLEWARE = [
@@ -94,10 +96,18 @@ WSGI_APPLICATION = 'drf.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "drf",
+        "USER": "armando",
+        "PASSWORD": "root",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    },
 }
 
 
