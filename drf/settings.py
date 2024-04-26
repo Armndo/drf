@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-!n#2uln8-fg%we7o-^9885o2_1*$hg83v6i)at-(7lu)3=r#ob
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1'
+    'drf.pezatomico.online',
+    # 'localhost',
 ]
 
 # Application definition
@@ -42,22 +42,20 @@ INSTALLED_APPS = [
     'rest_framework',
     'base',
     'django_dump_die',
-    'corsheaders',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://drf.pezatomico.online',
 ]
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_RENDERER_CLASSES': (
-    #     'rest_framework.renderers.JSONRenderer',
-    # ),
-    # 'DEFAULT_PARSER_CLASSES': (
-    #     'rest_framework.parsers.JSONParser',
-    # )
+     'DEFAULT_RENDERER_CLASSES': (
+         'rest_framework.renderers.JSONRenderer',
+     ),
+     'DEFAULT_PARSER_CLASSES': (
+         'rest_framework.parsers.JSONParser',
+     )
 }
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,7 +66,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_dump_die.middleware.DumpAndDieMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'drf.urls'
@@ -145,7 +142,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'https://assets.pezatomico.online/drf'
+#STATIC_URL = 'static/'
+STATIC_ROOT = '/var/www/assets/drf'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
