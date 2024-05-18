@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!n#2uln8-fg%we7o-^9885o2_1*$hg83v6i)at-(7lu)3=r#ob'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'drf.pezatomico.online',
+    'drf.pezatomico.com',
     # 'localhost',
 ]
 
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://drf.pezatomico.online',
+    'https://drf.pezatomico.com',
 ]
 
 REST_FRAMEWORK = {
@@ -142,7 +142,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'https://assets.pezatomico.online/drf'
+STATIC_URL = 'https://assets.pezatomico.com/drf'
 #STATIC_URL = 'static/'
 STATIC_ROOT = '/var/www/assets/drf'
 

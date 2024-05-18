@@ -1,4 +1,4 @@
 # drf
 Django Rest Framework PoC
 
-### Running at: [https://drf.pezatomico.online/](https://drf.pezatomico.online/)
+### Running at: [https://drf.pezatomico.com/](https://drf.pezatomico.com/)
